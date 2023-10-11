@@ -1,52 +1,35 @@
 import pickle
+from flask import Flask
+from flask import request
+from flask import jsonify
 
 model_file = 'model_C1.0.bin'
+app = Flask("churn")
 
-# %% [markdown]
-# # Load the model
-# `pickle` is a built-in Python library for saving Python objects
-
-# %%
-
-# %%
-
-# %%
 # Open model_file and instruct that we will "rb" = Read Bytes
 with open(model_file, "rb") as f_in:
     # Need also DictVectorizer, otherwise won't be able to translate a customer to feature matrix
     dv, model = pickle.load(f_in)
 
-# %%
-dv, model
+def predict_churn(customer):
+    X = dv.transform([customer])
+    y_pred = model.predict_proba(X)[0,1]
+    churn = y_pred >= 0.5
+    return y_pred, churn
 
-# %%
-customer = {
-    'gender': 'female',
-    'seniorcitizen': 0,
-    'partner': 'yes',
-    'dependents': 'no',
-    'phoneservice': 'no',
-    'multiplelines': 'no_phone_service',
-    'internetservice': 'dsl',
-    'onlinesecurity': 'no',
-    'onlinebackup': 'yes',
-    'deviceprotection': 'no',
-    'techsupport': 'no',
-    'streamingtv': 'no',
-    'streamingmovies': 'no',
-    'contract': 'month-to-month',
-    'paperlessbilling': 'yes',
-    'paymentmethod': 'electronic_check',
-    'tenure': 1,
-    'monthlycharges': 29.85,
-    'totalcharges': 29.85
-}
+@app.route("/predict", methods=["POST"])
+def predict():
+    customer = request.get_json()
+    y_pred, churn = predict_churn(customer)
 
-# %%
-X = dv.transform([customer])
+    result = {
+        # Convert Numpy float64 to Python float
+        "churn_probability": float(y_pred),
+        # Convert Numpy boolean to Python boolean
+        "churn": bool(churn),
+    }
 
-# %%
-# Get row 0, col 1 - the positive probability (that will churn)
-y_pred = model.predict_proba(X)[0,1]
-print("input", customer)
-print("churn probability", y_pred)
+    return jsonify(result)
+
+if __name__ == "__main__":
+    app.run(debug=True, host="0.0.0.0", port=9696)

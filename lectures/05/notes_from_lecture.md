@@ -13,3 +13,10 @@
 # 5.3 Web services: introduction to Flask
 - writing a simple ping/pong app
 - querying it with `curl` and browser
+
+# 5.4 Serving the churn model with Flask
+- Wrapping the predict script into a Flask app
+- Querying it with `requests`
+- Preparing for production: gunicorn
+- Running it on Windows with waitress
+

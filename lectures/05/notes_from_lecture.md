@@ -20,3 +20,15 @@
 - Preparing for production: gunicorn
 - Running it on Windows with waitress
 
+# 5.5 Python virtual environment: Pipenv
+- dependency and environment management
+- why we need virtual environment
+- installing pipenb
+- installing libraries with pipenv
+- running things with pipenv
+  
+# 5.6 Environment management: Docker
+- why do we need docker
+- running a python image with docker
+- dockerfile
+- building & running a docker image

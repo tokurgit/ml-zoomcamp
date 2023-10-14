@@ -1,3 +1,4 @@
+import logging
 import pickle
 from flask import Flask
 from flask import request
@@ -33,3 +34,9 @@ def predict():
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=9696)
+
+if __name__ != '__main__':
+    # Enable logging on the  gunicorn server
+    gunicorn_logger = logging.getLogger('gunicorn.error')
+    app.logger.handlers.extend(gunicorn_logger.handlers)
+    app.logger.setLevel(gunicorn_logger.level)

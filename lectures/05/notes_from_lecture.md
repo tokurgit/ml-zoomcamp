@@ -32,3 +32,13 @@
 - running a python image with docker
 - dockerfile
 - building & running a docker image
+
+# 5.7 Deployment to the cloud: AWS Elastic Beanstalk (optonal)
+- Installing the eb cli
+- Running eb locally
+  - PyYAML version at `5.3.1` (otherwise, _cython_sources_ error)
+  - use `awsebcli==3.20.3`, had issues w `3.20.10`
+  - `eb local run --port 9696 --debug --verbose`
+  - _"ERROR: NotSupportedError - You can use "eb local" only with preconfigured, generic and multicontainer Docker platforms."_
+- Deploying the model
+  

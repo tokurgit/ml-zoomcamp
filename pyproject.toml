@@ -16,6 +16,7 @@ jupyter = "^1.0.0"
 tqdm = "^4.66.1"
 flask = "^3.0.0"
 gunicorn = "^21.2.0"
+xgboost = "^2.0.0"
 
 
 [build-system]

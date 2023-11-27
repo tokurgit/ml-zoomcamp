@@ -22,6 +22,9 @@ keras-image-helper = "^0.0.1"
 tflite-runtime = "^2.14.0"
 
 
+[tool.poetry.group.dev.dependencies]
+awscli = "^1.30.7"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"

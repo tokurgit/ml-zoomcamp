@@ -24,6 +24,7 @@ pillow = "^10.1.0"
 grpcio = "^1.59.3"
 tensorflow-serving-api = "^2.14.1"
 protobuf = "3.20.3"
+tensorflow-protobuf = "2.7.0"
 
 
 [tool.poetry.group.dev.dependencies]

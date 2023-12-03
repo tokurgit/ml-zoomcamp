@@ -3281,6 +3281,20 @@ tensorflow-gpu = ["tensorflow-gpu (>=2.13.0,<2.14.0)"]
 tensorflow-rocm = ["tensorflow-rocm (>=2.13.0,<2.14.0)"]
 
 [[package]]
+name = "tensorflow-protobuf"
+version = "2.7.0"
+description = "Protobuf files from TensorFlow and TensorFlow-Serving"
+optional = false
+python-versions = "*"
+files = [
+    {file = "tensorflow-protobuf-2.7.0.tar.gz", hash = "sha256:89073a618c3439ac75051621158f2de5d401ed3a683a4d86a68882c35a9f51d3"},
+    {file = "tensorflow_protobuf-2.7.0-py3-none-any.whl", hash = "sha256:3b4ddf9c468160e2fa97130d9a3d46b182dfdd6f3c2fcb95ad7ff9d549b2dd0d"},
+]
+
+[package.dependencies]
+protobuf = "*"
+
+[[package]]
 name = "tensorflow-serving-api"
 version = "2.14.1"
 description = "TensorFlow Serving Python API."
@@ -3721,4 +3735,4 @@ scikit-learn = ["scikit-learn"]
 [metadata]
 lock-version = "2.0"
 python-versions = "~3.10"
-content-hash = "b382aee400bbd9ae8fdb2d81c20d0c87e0b67034f7ea8fa211dc52940eb98f04"
+content-hash = "693f61e950efdea736e82677160318592eb970be6118fdc7348e679cefb48262"

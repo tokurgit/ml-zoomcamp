@@ -21,6 +21,9 @@ tensorflow = "^2.14.0"
 keras-image-helper = "^0.0.1"
 tflite-runtime = "^2.14.0"
 pillow = "^10.1.0"
+grpcio = "^1.59.3"
+tensorflow-serving-api = "^2.14.1"
+protobuf = "3.20.3"
 
 
 [tool.poetry.group.dev.dependencies]

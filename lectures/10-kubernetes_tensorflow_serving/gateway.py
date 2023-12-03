@@ -61,7 +61,7 @@ def predict_endpoint():
     return jsonify(result)
 
 if __name__ == "__main__":
-    # url = "http://bit.ly/mlbookcamp-pants"
-    # res = predict(url)
-    # print(res)
-    app.run(debug=True, host="0.0.0.0", port=9696)
+    url = "http://bit.ly/mlbookcamp-pants"
+    res = predict(url)
+    print(res)
+    # app.run(de bug=True, host="0.0.0.0", port=9696)
